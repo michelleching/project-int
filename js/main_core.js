@@ -102,7 +102,7 @@ $(document).ready(function() {
           recs.push(article)
         }
       })
-      
+
       $.each(recs.slice(0, 16), function(index, article) {
         $("#fh5co-main").append(
           '<a class="article" href="' + article.link + '" target="_blank">' +
@@ -122,7 +122,7 @@ $(document).ready(function() {
       })
     } else if (selectedCategory === 'Profile') {
       $("#fh5co-main").append(
-        // '<div class="fh5co-narrow-content"><h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Profile</h2>' +
+        '<div class="fh5co-narrow-content">' +
         '<div class="row row-bottom-padded-md">' +
           '<div class="col-md-6">' +
             '<canvas id="catChart"></canvas>' + 
@@ -138,8 +138,8 @@ $(document).ready(function() {
           '<div class="col-md-6" >'+
              '<canvas id="doughChart"></canvas>' +
           '</div>'+
-          '</div>'  
-          // '</div>'
+          '</div>' +  
+          '</div>'
         )
       makeGraphs(articlesRead, allArticles, sources)
     } else {
@@ -188,7 +188,8 @@ function makeGraphs(articlesRead, allArticles, sources) {
   // cat names stolen from NPR site
   var cats = ['U.S.', 'World', 'Politics', 'Economy', 'Science & Technology']
   var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var padding = 50
+  var padding = 10
+  // var leftRightPad = 745
   var labelsColor = 'rgba(80,80,80,1)'
   var dateFormat = "ddd, DD MMM YYYY HH:mm:ss +0000"
 
