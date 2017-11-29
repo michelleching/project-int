@@ -42,32 +42,32 @@ $(document).ready(function() {
       // biasAverage = calcuateBiasAverage(articlesRead, sources)
       // console.log(biasAverage)
 
-      allArticles.forEach(function(article) {
-        if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
-          recs.push(article)
-        }
-      })
+      // allArticles.forEach(function(article) {
+      //   if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
+      //     recs.push(article)
+      //   }
+      // })
 
-      console.log(allArticles)
-      console.log(recs)
+      // console.log(allArticles)
+      // console.log(recs)
 
-      // Display 10 recent articles
-      $.each(recs.slice(0, 16), function(index, article) {
+      // // Display 10 recent articles
+      // $.each(recs.slice(0, 16), function(index, article) {
 
-        $("#fh5co-main").append(
-          '<a class="article" href="' + article.link + '" target="_blank">' +
-            '<div class="col-md-3 col-sm-6 col-padding">' +
-              '<div class="blog-entry">' +
-              '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
-              '<div class="desc">' +
-                  '<h3>' + article.title + '</h3>' +
-                  '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
-                  '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
-          '</a>'
-        ) });
+      //   $("#fh5co-main").append(
+      //     '<a class="article" href="' + article.link + '" target="_blank">' +
+      //       '<div class="col-md-3 col-sm-6 col-padding">' +
+      //         '<div class="blog-entry">' +
+      //         '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
+      //         '<div class="desc">' +
+      //             '<h3>' + article.title + '</h3>' +
+      //             '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
+      //             '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+      //           '</div>' +
+      //         '</div>' +
+      //       '</div>' +
+      //     '</a>'
+      //   ) });
 
 
     }
@@ -95,32 +95,32 @@ $(document).ready(function() {
     // Append category name
     $("#fh5co-main").append('<div class="category-narrow-content"><h2 class="fh5co-heading">' + selectedCategory +  '</h2></div>');
 
-    if (selectedCategory === 'Home') {
-      console.log('home')
-      allArticles.forEach(function(article) {
-        if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
-          recs.push(article)
-        }
-      })
+    // if (selectedCategory === 'Home') {
+    //   console.log('home')
+    //   allArticles.forEach(function(article) {
+    //     if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
+    //       recs.push(article)
+    //     }
+    //   })
 
-      $.each(recs.slice(0, 16), function(index, article) {
-        $("#fh5co-main").append(
-          '<a class="article" href="' + article.link + '" target="_blank">' +
-            '<div class="col-md-3 col-sm-6 col-padding">' +
-              '<div class="blog-entry">' +
-              '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
-              '<div class="desc">' +
-                  '<h3>' + article.title + '</h3>' +
-                  '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
-                  '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
-                '</div>' +
-              '</div>' +
-            '</div>' +
-          '</a>'
-        );
+    //   $.each(recs.slice(0, 16), function(index, article) {
+    //     $("#fh5co-main").append(
+    //       '<a class="article" href="' + article.link + '" target="_blank">' +
+    //         '<div class="col-md-3 col-sm-6 col-padding">' +
+    //           '<div class="blog-entry">' +
+    //           '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
+    //           '<div class="desc">' +
+    //               '<h3>' + article.title + '</h3>' +
+    //               '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
+    //               '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+    //             '</div>' +
+    //           '</div>' +
+    //         '</div>' +
+    //       '</a>'
+    //     );
 
-      })
-    } else if (selectedCategory === 'Profile') {
+    //   })
+    if (selectedCategory === 'Profile') {
       $("#fh5co-main").append(
         '<div class="fh5co-narrow-content">' +
         '<div class="row row-bottom-padded-md">' +
@@ -141,6 +141,32 @@ $(document).ready(function() {
           '</div>' +  
           '</div>'
         )
+
+      allArticles.forEach(function(article) {
+        if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
+          recs.push(article)
+        }
+      })
+
+      $('#fh5co-main').append('<div class="category-narrow-content"><h2 class="fh5co-heading" data-animate-effect="fadeInLeft">Recommended Articles</h2></div>')
+
+      $.each(recs.slice(0, 16), function(index, article) {
+        $("#fh5co-main").append(
+          '<a class="article" href="' + article.link + '" target="_blank">' +
+            '<div class="col-md-3 col-sm-6 col-padding">' +
+              '<div class="blog-entry">' +
+              '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
+              '<div class="desc">' +
+                  '<h3>' + article.title + '</h3>' +
+                  '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
+                  '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</a>'
+        );
+
+      })
       makeGraphs(articlesRead, allArticles, sources)
     } else {
 
